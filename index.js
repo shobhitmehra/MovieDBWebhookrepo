@@ -34,7 +34,10 @@ server.post('/get-movie-details', (req, res) => {
                 speech: dataToSend,
                 displayText: dataToSend,
                 source: 'get-movie-details',
-		    followupEvent:inputconfirm
+		"followupEvent": {
+		  "name": "inputconfirm"
+		  
+		}	
             });
         });
     }, (error) => {
@@ -42,7 +45,12 @@ server.post('/get-movie-details', (req, res) => {
             speech: 'Something went wrong!',
             displayText: 'Something went wrong!',
             source: 'get-movie-details',
-	followupEvent:inputconfirm
+	"followupEvent": {
+  "name": "inputconfirm"
+ 
+}	
+		
+	   
         });
     });
 });
