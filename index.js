@@ -34,7 +34,13 @@ server.post('/get-movie-details', (req, res) => {
                 speech: dataToSend,
                 displayText: dataToSend,
                 source: 'get-movie-details',
-		    data:{"abcd":"<p>abcd</p>"}
+		    data:{"abcd":"<p>abcd</p>"},
+		    "messages": {
+  "type": 1,
+  "title": "card title",
+  "subtitle": "card text",
+  "imageUrl": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png"
+}
             });
         });
     }, (error) => {
