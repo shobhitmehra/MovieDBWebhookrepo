@@ -33,7 +33,13 @@ server.post('/get-movie-details', (req, res) => {
             return res.json({
                 speech: dataToSend,
                 displayText: dataToSend,
-                source: 'get-movie-details'
+                source: 'get-movie-details',
+		    "followupEvent": {
+  "name": "input.welcome",
+  "parameters": {
+   
+  }
+}
             });
         });
     }, (error) => {
