@@ -35,7 +35,8 @@ server.post('/get-movie-details', (req, res) => {
                 displayText: dataToSend,
                 source: 'get-movie-details',
 		    "followupEvent": {
-  "name": "input.welcome"
+  "name": "input.welcome",
+			    "parameters": {}
   
 }
             });
@@ -44,9 +45,7 @@ server.post('/get-movie-details', (req, res) => {
         return res.json({
             speech: 'Something went wrong!',
             displayText: 'Something went wrong!',
-            source: 'get-movie-details',
-		"followupEvent": {
-  "name": "input.welcome"
+            source: 'get-movie-details'
   
 }
 		
