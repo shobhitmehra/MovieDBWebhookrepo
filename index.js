@@ -35,10 +35,8 @@ server.post('/get-movie-details', (req, res) => {
                 displayText: dataToSend,
                 source: 'get-movie-details',
 		    "followupEvent": {
-  "name": "input.welcome",
-			    "parameters": {}
-  
-}
+  "name": "input.welcome"
+		    }
             });
         });
     }, (error) => {
