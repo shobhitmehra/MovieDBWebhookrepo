@@ -35,7 +35,7 @@ server.post('/get-movie-details', (req, res) => {
                 displayText: dataToSend,
                 source: 'get-movie-details',
 		"followupEvent": {
-		  "name": "inputconfirm"
+		  "name": "reintent"
 		  
 		}	
             });
@@ -46,7 +46,7 @@ server.post('/get-movie-details', (req, res) => {
             displayText: 'Something went wrong!',
             source: 'get-movie-details',
 	"followupEvent": {
-  "name": "inputconfirm"
+  "name": "reintent"
  
 }	
 		
