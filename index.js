@@ -33,14 +33,22 @@ server.post('/get-movie-details', (req, res) => {
             return res.json({
                 speech: dataToSend,
                 displayText: dataToSend,
-                source: 'get-movie-details'
+                source: 'get-movie-details',
+		    "followupEvent": {
+  "name": "input.welcome"
+  
+}
             });
         });
     }, (error) => {
         return res.json({
             speech: 'Something went wrong!',
             displayText: 'Something went wrong!',
-            source: 'get-movie-details'
+            source: 'get-movie-details',
+		"followupEvent": {
+  "name": "input.welcome"
+  
+}
 		
 	   
         });
