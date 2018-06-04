@@ -27,8 +27,10 @@ server.post('/get-movie-details', (req, res) => {
             var movie = JSON.parse(completeResponse);
 		
            let dataToSend = movieToSearch === 'The Godfather' ? `I don't have the required info on that. Here's some info on 'The Godfather' instead.\n` : '';
-            dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}`;
- dataToSend +='<p> If you need information about a movie, you can ask mee.</p>';			
+            dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}
+		
+If you need information about a movie, you can ask mee.`;
+  		
 
             return res.json({
                 speech: dataToSend,
