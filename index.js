@@ -34,7 +34,7 @@ server.post('/get-movie-details', (req, res) => {
                 speech: dataToSend,
                 displayText: dataToSend,
                 source: 'get-movie-details',
-		    data:{"abcd":"abcd"}
+		    data:{"abcd":"<p>abcd</p>"}
             });
         });
     }, (error) => {
