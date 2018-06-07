@@ -30,7 +30,7 @@ server.post('/get-movie-details', (req, res) => {
           
 		
 		
-		dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}.  \r\n \r\n If you need information about another movie, you can ask me. `;
+		dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}. It has ${movie.imdbRating} Imdb rating with ${movie.imdbVotes} Imdb votes.  \r\n \r\n If you need information about another movie, you can ask me. `;
 		
 
             return res.json({
