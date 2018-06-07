@@ -2,10 +2,11 @@
 var  API_KEY = "8040a1d3";
 
 
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const http = require('http');
-//const API_KEY = require('./apiKey');
+const API_KEY = require('./apiKey');
 
 const server = express();
 server.use(bodyParser.urlencoded({
@@ -42,13 +43,6 @@ server.post('/get-movie-details', (req, res) => {
         });
     });
 });
-
-server.listen((process.env.PORT || 8000), () => {
-    console.log("Server is up and running...");
-});
-
-
-
 
 server.listen((process.env.PORT || 8000), () => {
     console.log("Server is up and running...");
