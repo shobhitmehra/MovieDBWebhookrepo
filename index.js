@@ -16,15 +16,15 @@ server.use(bodyParser.json());
 
 server.post('/get-movie-details', (req, res) => {
 
-    const   movieToSearch = req.body.result && req.body.result.parameters && req.body.result.parameters.movie ? req.body.result.parameters.movie : 'The Godfather';
-    const  reqUrl = encodeURI(`http://www.omdbapi.com/?t=${movieToSearch}&apikey=${API_KEY}`);
+    var   movieToSearch = req.body.result && req.body.result.parameters && req.body.result.parameters.movie ? req.body.result.parameters.movie : 'The Godfather';
+    var  reqUrl = encodeURI(`http://www.omdbapi.com/?t=${movieToSearch}&apikey=${API_KEY}`);
     http.get(reqUrl, (responseFromAPI) => {
-        const  completeResponse = '';
+        var  completeResponse = '';
         responseFromAPI.on('data', (chunk) => {
             completeResponse += chunk;
         });
         responseFromAPI.on('end', () => {
-            const   movie = JSON.parse(completeResponse);
+            var   movie = JSON.parse(completeResponse);
 		
            let dataToSend = movieToSearch === 'The Godfather' ? `I don't have the required info on that. Here's some info on 'The Godfather' instead.\n` : '';
             dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}.  \r\n \r\n If you need information about another movie, you can ask me. `;
