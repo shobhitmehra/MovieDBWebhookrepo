@@ -51,7 +51,7 @@ server.post('/get-movie-details', (req, res) => {
 });
 
 
-
+  
 
 
 server.listen((process.env.PORT || 8000), () => {
