@@ -29,9 +29,9 @@ server.post('/get-movie-details', (req, res) => {
 		console.log( movie.Title +" and "+ movie.imdbRating +" and "+ movie.Genre+ " and "+movie.Year)
 		var retData="";
 		if(movie.Response=="True" ){
-			retData+=movie.Title+"is a";
+			retData+=movie.Title+"&nbsp;is a &nbsp;";
 			if(movie.Actors!="N/A"){
-				retData+=movie.Actors+ " starer";
+				retData+=movie.Actors+ " starer ";
 			}
 			if(movie.Genre!="N/A"){
 				retData+=movie.Genre+ " movie";
