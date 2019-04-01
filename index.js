@@ -27,7 +27,37 @@ server.post('/get-movie-details', (req, res) => {
             var   movie = JSON.parse(completeResponse);
 		console.log(movie)
 		console.log( movie.Title +" and "+ movie.imdbRating +" and "+ movie.Genre+ " and "+movie.Year)
+		var retData="";
+		if(movie.Response=="True" ){
+			retData+=movie.Title+"is a";
+			if(movie.Actors!="N/A"){
+				retData+=movie.Actors+ "starer"
+			}
+			if(movie.Genre!="N/A"){
+				retData+=movie.Genre+ "movie", 
+			}
+			if(movie.Year!="N/A"){
+				retData+="released in" +movie.Year;
+			}
+			if(movie.Director!="N/A"){	      
+				retData+="It was directed by" +movie.Director;
+			}
+			if(movie.imdbRating!="N/A"){		
+				retData+="It has" +movie.imdbRating+" Imdb rating"; 
+			}
+			if(movie.imdbVotes!="N/A"){
+			retData+="with" +movie.imdbVotes+" Imdb votes."  
+			}
+			retData+="\r\n \r\n If you need information about another movie, you can ask me."
+		}
+		else
+		{
+			retData='Movie Not Found! try another one'
+		}
+		
 		let dataToSend ="";
+		
+		
 		if(movie.Response=="True" ){
 				dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}. It has ${movie.imdbRating} Imdb rating with ${movie.imdbVotes} Imdb votes.  \r\n \r\n If you need information about another movie, you can ask me. `;
 
