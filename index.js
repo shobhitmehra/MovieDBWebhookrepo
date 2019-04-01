@@ -29,7 +29,7 @@ server.post('/get-movie-details', (req, res) => {
 		console.log( movie.Title +" and "+ movie.imdbRating +" and "+ movie.Genre+ " and "+movie.Year)
 		var retData="";
 		if(movie.Response=="True" ){
-			retData+=movie.Title+"&nbsp;is a &nbsp;";
+			retData+=movie.Title+" is a ";
 			if(movie.Actors!="N/A"){
 				retData+=movie.Actors+ " starer ";
 			}
@@ -39,17 +39,21 @@ server.post('/get-movie-details', (req, res) => {
 			else{retData+=' movie '}
 					
 			if(movie.Year!="N/A"){
-				retData+="released in " +movie.Year;
+				retData+=" released in " +movie.Year;
 			}
 			if(movie.Director!="N/A"){	      
-				retData+="It was directed by" +movie.Director;
+				retData+=" .It was directed by " +movie.Director;
 			}
 			if(movie.imdbRating!="N/A"){		
-				retData+="It has" +movie.imdbRating+" Imdb rating"; 
+				retData+=" It has " +movie.imdbRating+" Imdb rating "; 
 			}
 			if(movie.imdbVotes!="N/A"){
-				retData+="with" +movie.imdbVotes+" Imdb votes."  
+				retData+=" with" +movie.imdbVotes+" Imdb votes. \r\n"  
 			}
+			if(movie.Plot!="N/A"){
+				retData+= "  Movie Plot:   "+ movie.Plot
+			}
+			
 			retData+="\r\n \r\n If you need information about another movie, you can ask me."
 		}
 		else
