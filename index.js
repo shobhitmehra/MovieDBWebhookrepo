@@ -42,10 +42,10 @@ server.post('/get-movie-details', (req, res) => {
 				retData+=" released in " +movie.Year;
 			}
 			if(movie.Director!="N/A"){	      
-				retData+=" .It was directed by " +movie.Director;
+				retData+=" . It was directed by " +movie.Director;
 			}
 			if(movie.imdbRating!="N/A"){		
-				retData+=" It has " +movie.imdbRating+" Imdb rating "; 
+				retData+=" .It has " +movie.imdbRating+" Imdb rating "; 
 			}
 			if(movie.imdbVotes!="N/A"){
 				retData+=" with" +movie.imdbVotes+" Imdb votes. \r\n"  
@@ -54,7 +54,7 @@ server.post('/get-movie-details', (req, res) => {
 				retData+= "  Movie Plot:   "+ movie.Plot
 			}
 			
-			retData+="\r\n \r\n If you need information about another movie, you can ask me."
+			retData+="\r\n \r\n .If you need information about another movie, you can ask me."
 		}
 		else
 		{
