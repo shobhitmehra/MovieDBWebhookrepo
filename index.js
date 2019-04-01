@@ -25,10 +25,17 @@ server.post('/get-movie-details', (req, res) => {
         });
         responseFromAPI.on('end', () => {
             var   movie = JSON.parse(completeResponse);
-		console.log(movie)
-           let dataToSend = movieToSearch === 'The Godfather' ? `I don't have the required info on that. Here's some info on 'The Godfather' instead.\n` : '';
+		console.log(movie.Response)
+		if(movie.Response=="False"){
+				dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}. It has ${movie.imdbRating} Imdb rating with ${movie.imdbVotes} Imdb votes.  \r\n \r\n If you need information about another movie, you can ask me. `;
+
+		}
+		else{
+			dataToSend='Movie Not Found! try another one'
+		}
+         //  let dataToSend = movieToSearch === 'The Godfather' ? `I don't have the required info on that. Here's some info on 'The Godfather' instead.\n` : '';
           
-	dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}. It has ${movie.imdbRating} Imdb rating with ${movie.imdbVotes} Imdb votes.  \r\n \r\n If you need information about another movie, you can ask me. `;
+	//dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}. It has ${movie.imdbRating} Imdb rating with ${movie.imdbVotes} Imdb votes.  \r\n \r\n If you need information about another movie, you can ask me. `;
             return res.json({
                 speech: dataToSend,
                 displayText: dataToSend,
