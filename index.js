@@ -31,10 +31,10 @@ server.post('/get-movie-details', (req, res) => {
 		if(movie.Response=="True" ){
 			retData+=movie.Title+"is a";
 			if(movie.Actors!="N/A"){
-				retData+=movie.Actors+ " starer"
+				retData+=movie.Actors+ " starer";
 			}
 			if(movie.Genre!="N/A"){
-				retData+=movie.Genre+ " movie", 
+				retData+=movie.Genre+ " movie";
 			}
 			else{retData+=' movie '}
 					
