@@ -31,13 +31,15 @@ server.post('/get-movie-details', (req, res) => {
 		if(movie.Response=="True" ){
 			retData+=movie.Title+"is a";
 			if(movie.Actors!="N/A"){
-				retData+=movie.Actors+ "starer"
+				retData+=movie.Actors+ " starer"
 			}
 			if(movie.Genre!="N/A"){
-				retData+=movie.Genre+ "movie", 
+				retData+=movie.Genre+ " movie", 
 			}
+			else{retData+=' movie '}
+					
 			if(movie.Year!="N/A"){
-				retData+="released in" +movie.Year;
+				retData+="released in " +movie.Year;
 			}
 			if(movie.Director!="N/A"){	      
 				retData+="It was directed by" +movie.Director;
@@ -46,7 +48,7 @@ server.post('/get-movie-details', (req, res) => {
 				retData+="It has" +movie.imdbRating+" Imdb rating"; 
 			}
 			if(movie.imdbVotes!="N/A"){
-			retData+="with" +movie.imdbVotes+" Imdb votes."  
+				retData+="with" +movie.imdbVotes+" Imdb votes."  
 			}
 			retData+="\r\n \r\n If you need information about another movie, you can ask me."
 		}
@@ -69,8 +71,8 @@ server.post('/get-movie-details', (req, res) => {
           
 	//dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}. It has ${movie.imdbRating} Imdb rating with ${movie.imdbVotes} Imdb votes.  \r\n \r\n If you need information about another movie, you can ask me. `;
             return res.json({
-                speech: dataToSend,
-                displayText: dataToSend,
+                speech: retData,
+                displayText: retData,
                 source: 'get-movie-details'
             });
         });
